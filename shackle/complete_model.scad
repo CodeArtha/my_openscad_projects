@@ -170,7 +170,7 @@ translate([-60, -20, 4.8]) {
 
 // Lock cadnas
 translate([-60, 0, 0]) {
-	difference() {
+	%difference() {
 		union() {
 			cylinder(r=5.5, h=11);
 			translate([0, 0, 11.2]) {
