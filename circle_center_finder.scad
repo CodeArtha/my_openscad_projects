@@ -26,9 +26,9 @@ difference() {
 		cube([85, 85, 6]);
 	}
 	translate([34, 13, 5]) {
-		#cylinder(d=6, h=8, $fn=20);
+		cylinder(d=6, h=8, $fn=20);
 	}
 	translate([100-17, 100-17, -1]) {
-		#cylinder(d=6, h=7, $fn=20);
+		cylinder(d=6, h=7, $fn=20);
 	}
 }
