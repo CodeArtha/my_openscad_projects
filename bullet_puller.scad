@@ -68,10 +68,10 @@ translate([30, 13, 90]) {
 				[40,80,0], //2
 				[0,80,0],  //3
 				//top rect
-				[5,70,20], //4
-				[5,10,20], //5
-				[35,10,20],//6
-				[35,70,20] //7
+				[5,70,25], //4
+				[5,10,25], //5
+				[35,10,25],//6
+				[35,70,25] //7
 				],
 				faces=[    // NOTE: when declaring the faces, the points have to be ordered so that when wrapping the Left Hand's fingers in the same order the thumb points outside of the polyhedron.
 				[0,1,2,3], //bottom
@@ -82,8 +82,8 @@ translate([30, 13, 90]) {
 				[7,6,5,4], //top
 				]
 			);
-			translate([20, 40, 10]) {
-				%cylinder(d=rod_diameter, h=rod_diameter*2+1, center=true);
+			translate([20, 40, 15]) {
+				cylinder(d=rod_diameter, h=rod_diameter*2+1, center=true);
 			}
 		}
 	}
@@ -92,7 +92,7 @@ translate([30, 13, 90]) {
 
 // caliber sockets
 // 9mm
-translate([-100, 0, bullet_holder_height/2]) {
+translate([-10, 0, bullet_holder_height/2]) {
 	difference() {
 		union() {
 			// bullet holder inside shape
