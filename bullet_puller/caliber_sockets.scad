@@ -18,77 +18,6 @@ body_diameter_38sp = 9;
 rim_diameter_38sp = 11;
 rim_thickness_38sp = 1;
 
-// body structure
-translate([50, 0, 55]) {
-	union() {
-		difference() {
-			cylinder(d=bullet_holder_diameter+18, h=110, center=true);
-			union(){
-				translate([0, 0, 45.1]) {
-					//bullet holder socket
-					cylinder(d=bullet_holder_diameter+1, h=bullet_holder_height/2, center=true);
-
-					// bullet and powder receptacle
-					translate([0, 0, -25]) {
-						cylinder(d=receptacle_diameter, h=receptacle_depth, center=true);;
-					}
-					translate([0, 0, -60]) {
-						sphere(d=receptacle_diameter);
-					}
-
-					//locking grove
-					translate([0, 15, 3]) {
-						cylinder(d=4, h=14, center=true);
-						translate([3, -.4, -5]) {
-							sphere(d=4);
-						}
-					}
-					translate([0, -15, 3]) {
-						cylinder(d=4, h=14, center=true);
-						translate([-3, .4, -5]) {
-							sphere(d=4);
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-//body to handle rod linkage
-// can't seem to figure out how to make a valid trapezoid
-translate([30, 13, 90]) {
-	rotate([-90,0,0]){
-		difference() {
-			polyhedron(
-				points=[
-				// bottom rect
-				[0,0,0],   //0
-				[40,0,0],  //1
-				[40,80,0], //2
-				[0,80,0],  //3
-				//top rect
-				[5,70,25], //4
-				[5,10,25], //5
-				[35,10,25],//6
-				[35,70,25] //7
-				],
-				faces=[    // NOTE: when declaring the faces, the points have to be ordered so that when wrapping the Left Hand's fingers in the same order the thumb points outside of the polyhedron.
-				[0,1,2,3], //bottom
-				[0,5,6,1],
-				[1,6,7,2],
-				[2,7,4,3],
-				[3,4,5,0],
-				[7,6,5,4], //top
-				]
-			);
-			translate([20, 40, 15]) {
-				cylinder(d=rod_diameter, h=rod_diameter*2+1, center=true);
-			}
-		}
-	}
-}
-
 
 // caliber sockets
 // 9mm
@@ -132,7 +61,7 @@ translate([-10, 0, bullet_holder_height/2]) {
 				}
 			}
 		}
-		translate([0, 0, 5]) {
+		translate([0, 0, 3]) {
 			cube(size=[2, bullet_holder_diameter+5, bullet_holder_height], center=true);
 		}
 	}
